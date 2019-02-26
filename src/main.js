@@ -3,3 +3,95 @@ let r = 20;
 let area = pi*r*r;
 console.log(`Area is:${area}`);
 
+// variable declarations
+let a = 10;
+console.log('Outer a = ',a);
+if(a){
+    let a = 20;
+    console.log('if a = ',a);
+}
+console.log('After if a = ',a);
+
+// constants
+const b = 10;
+console.log('constant before b = ',b);
+if(b){
+    const b = 20;
+    console.log('constant inside if b = ',b);
+}
+console.log('constant after if b = ',b);
+
+// constant with array
+const arr = ['a','b','c'];
+console.log('constant array before arr = ',arr);
+arr.push('d');
+console.log('constant array after push arr = ',arr);
+// const arr = [1,2]; // will throw error no redeclaration allowed
+
+// constant object
+const obj = {a:'a',b:'b'};
+console.log('constant object before obj = ',obj);
+obj.a = 'c';
+console.log('constant array after obj = ',obj);
+
+// Use of strict mode
+ let num = 10;
+function myFun(){
+    "use strict";
+     var num = 20;
+    console.log('num',num);
+}
+myFun();
+console.log('num',num);
+
+// use of arrow functions
+let aFun = () => {
+    console.log('Inside Arrow function without arguments');
+}
+const aFunConst = () => {
+    console.log('Inside Constant Arrow function without arguments');
+}
+aFun();
+aFunConst();
+
+let aFun1 = x => {
+    console.log('Inside arrow function with arguments', x++);
+}
+aFun1(10);
+
+// use of template literals
+console.log(`Hi this is bhushan and total is ${1+2}`);
+console.log(`this is multi line 
+
+statement`);
+console.log(`${1+`${2+3}`}`);
+
+
+// tag template literals
+var person = 'Mike';
+var age = 28;
+
+function myTag(strings, personExp, ageExp) {
+  var str0 = strings[0]; // "That "
+  var str1 = strings[1]; // " is a "
+  var str2 = strings[2];
+
+  // There is technically a string after
+  // the final expression (in our example),
+  // but it is empty (""), so disregard.
+  // var str2 = strings[2];
+
+  var ageStr;
+  if (ageExp > 99){
+    ageStr = 'centenarian';
+  } else {
+    ageStr = 'youngster';
+  }
+
+  // We can even return a string built using a template literal
+  return `${str0}${personExp}${str1}${ageStr}${str2}`;
+}
+
+var output = myTag`That ${ person } is a ${ age } omg.`;
+
+console.log(output);
