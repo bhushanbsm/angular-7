@@ -1,9 +1,17 @@
-const pi = 3.14;
-let r = 20;
-let area = pi*r*r;
-console.log(`Area is:${area}`);
+<!DOCTYPE html>
+<html lang="en">
 
-// variable declarations
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  <title>Babel Project</title>
+</head>
+
+<body>
+  <script type="text/babel">
+        // variable declarations
 let a = 10;
 console.log('Outer a = ',a);
 if(a){
@@ -95,3 +103,7 @@ function myTag(strings, personExp, ageExp) {
 var output = myTag`That ${ person } is a ${ age } omg.`;
 
 console.log(output);
+ </script>
+</body>
+
+</html>

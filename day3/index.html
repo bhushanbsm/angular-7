@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  <title>Babel Project Day3</title>
+</head>
+
+<body>
+  <script type="text/babel">
+  let name = "ram";
+  let age = 26;
+  let personNonShorthand = {
+    name: name,
+    age: age
+  }
+  console.log('person without shorthand creation',personNonShorthand);
+  let person = {
+    name,
+    age
+  }
+  console.log('person with shorthand creation',person);
+
+  let personFunction = {
+    name,
+    age,
+    printPerson() {
+      console.log(`Person name is ${name} and age is ${age}`);
+    }
+  }
+  personFunction.printPerson();
+
+  // Spreadship operator
+  let a = [1,2,3,4];
+  let b = [0,a,5,6,7,8];
+  console.log('b is ',b);
+  console.log(`b = ${b}`);
+  let c = [0,...a,5,6,7];
+  console.log('c = ',c);
+  console.log('max of without spread c = ', Math.max(c));
+  console.log('max of c = ', Math.max(...c));
+
+  // uses reference of a
+  let d = a;
+  console.log('a before push = ',a);
+  d.push(9);
+  console.log('d after push = ',d);
+  console.log('a after push = ',a);
+  // avoid above behaviour with spread
+  let e = [1,2,3,4];
+  console.log('e befor = ',e);
+  let f = [...e];
+  console.log('e after = ',e);
+  console.log('f after = ',f);
+
+  // explode string to arrays using spread
+  let st = "HELLO";
+  console.log('String array = ',[...st]);
+
+  // checking behaviour with named indexes
+  let namedArr = {'a':1, 'b': 2, 'c': 3};
+  let namedArr2 = {'a':2, 'd':4};
+  let result = {...namedArr,...namedArr2};
+  console.log('result = ', result);
+  
+  // REST parameters
+  function myFun(...params) {
+    console.log('Addition = ', params[0]+params[1]);
+  }
+myFun(1,2);
+myFun();
+
+  </script>
+</body>
+
+</html>
