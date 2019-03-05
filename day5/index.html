@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+  <title>Babel Project Day3</title>
+</head>
+
+<body>
+  <script type="text/babel">
+  let arr = [1,2,3,4,5,6];
+  console.log('find = ', arr.find((x)=>{
+  return x>5;
+}));
+
+console.log('findIndex = ', arr.findIndex((x)=>{
+  return x>5;
+}));
+
+console.log('Hello array = ',Array.from('Hello'));
+
+console.log('addition of array elements = ',Array.from([1, 2, 3], x => x + x));
+  
+// destructuring
+let b = {name:'xyz', age: 26};
+let {name,age} = b;
+console.log('name = ',name);
+console.log('age = ',age);
+
+
+  </script>
+</body>
+
+</html>
