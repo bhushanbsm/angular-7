@@ -10,5 +10,6 @@ class MyVehicle {
 }
 var obj1 = new MyVehicle('BMW');
 obj1.runs();
+console.log("hi");
 
 

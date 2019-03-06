@@ -1,11 +1,12 @@
-var Vehicle = /** @class */ (function () {
-    function Vehicle(name) {
+var MyVehicle = (function () {
+    function MyVehicle(name) {
         this.name = name;
     }
-    Vehicle.prototype.runs = function () {
+    MyVehicle.prototype.runs = function () {
         console.log('ruuns');
     };
-    return Vehicle;
+    return MyVehicle;
 }());
-var obj = new Vehicle('BMW');
-obj.runs();
+var obj1 = new MyVehicle('BMW');
+obj1.runs();
+console.log("hi");
