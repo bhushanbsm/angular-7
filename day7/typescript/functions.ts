@@ -4,7 +4,7 @@ class MyVehicle {
 		this.name = name;	
 	}
 	
-	cal(a: Number, b: Number) {
+	cal(a: number, b: number) {
 		let c = a + b;
 		console.log('Total = ', c);	
 	}
@@ -24,19 +24,25 @@ obj2.cal(1, 2);// Total = Nan but no error
 
 class MyCalculator {	
 	cal(a: number, b: number, ...c:number[]):number {
-		let d = a + b + c[0];
+		let d = c.reduce((x,y) => x + y,0) + a + b;
 		console.log('Total with rest parameters = ', d);
+		// console.log('addition of array elements = ',[1, 2, 3].reduce( (x,y) => x + y));
 		return 0;	
 	}
 
-	calGeneric<U>(a: T, b: T, ...c:T[]):T {
-		let d = a + b + c[0];
+	calGeneric<T>(a: T, b: T, ...c:T[]):T {
+		// Operator '+' cannot be applied to types 'T' and 'T'
+		// can not apply arithemetic operators on generic types
+		// let d = a + b + c[0];
+		// let d = a * b * c[0];
+		let d = c.reduce((x,y) => x);
+		// let d = c[0];
 		console.log('Total with Generic parameters = ', d);
-		return ;	
+		return d;	
 	}
 } 
 var obj3 = new MyCalculator();
-obj3.cal(1, 2, 3); // Total = 6
+obj3.cal(1, 2, 3,4); // Total = 6
 obj3.cal(1, 2);// Total = Nan but no error
 
 obj3.calGeneric(1, 2, 3); // Total = 6
@@ -51,7 +57,7 @@ let myGenericNumber = new GenericNumber<number>();
 myGenericNumber.zeroValue = 0;
 myGenericNumber.add = function (x, y) { return x + y; };
 console.log(myGenericNumber.add(1, 2));
-console.log(myGenericNumber.add(myGenericNumber.zeroValue, "test"));
+console.log(myGenericNumber.add(myGenericNumber.zeroValue, 1));
 
 // Generic Interfaces
 interface GenericIdentityFn {
@@ -63,3 +69,7 @@ function identity<T>(arg: T): T {
 }
 
 let myIdentity: GenericIdentityFn = identity;
+console.log("interface function called =",myIdentity(1));
+console.log("typeof identity =",typeof identity);
+console.log("typeof myIdentity =",typeof myIdentity);
+

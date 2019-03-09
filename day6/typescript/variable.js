@@ -1,4 +1,4 @@
-var MyVehicle = (function () {
+var MyVehicle = /** @class */ (function () {
     function MyVehicle(name) {
         this.name = name;
     }
